@@ -5,6 +5,7 @@ Inspired by [Tanooki Save Editor](https://gbatemp.net/threads/tanooki-nsmbwii-le
 
 Credits to [Grop](https://github.com/TheGrop) for reverse engineering the ComputeChecksum function from the game for me.
 Credits to [Treeki](https://github.com/Treeki) for reverse engineering save files in [NewerSMBW's game.h file](https://github.com/Treeki/NewerSMBW/blob/no-translations/Kamek/include/game.h#L222).
+Credits to [Cyotek](https://github.com/cyotek) for his awesome [Windows Forms Color Picker](https://github.com/cyotek/Cyotek.Windows.Forms.ColorPicker).
 
 # Usage
 Build the code by yourself using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or download the latest [Compiled Binary](https://github.com/RedStoneMatt/NewerTanooki/releases) and open the software.
