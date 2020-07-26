@@ -1,0 +1,13 @@
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\bin\Debug\NewerTanooki.exe.config
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\bin\Debug\NewerTanooki.exe
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\bin\Debug\NewerTanooki.pdb
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.csprojAssemblyReference.cache
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.Properties.Resources.resources
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.csproj.GenerateResource.cache
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.exe
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.pdb
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.Main.resources
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\bin\Debug\Cyotek.Windows.Forms.ColorPicker.dll
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\bin\Debug\Cyotek.Windows.Forms.ColorPicker.xml
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.csproj.CopyComplete
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Debug\NewerTanooki.About.resources
