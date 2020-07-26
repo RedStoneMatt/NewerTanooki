@@ -4,7 +4,9 @@ A NewerSMBW Save Editor.
 Inspired by [Tanooki Save Editor](https://gbatemp.net/threads/tanooki-nsmbwii-level-editor.191261/) made by [Vash](https://game-hackers.com/members/4-Vash) and [Virus](https://game-hackers.com/members/1-Virus).
 
 Credits to [Grop](https://github.com/TheGrop) for reverse engineering the ComputeChecksum function from the game for me.
+
 Credits to [Treeki](https://github.com/Treeki) for reverse engineering save files in [NewerSMBW's game.h file](https://github.com/Treeki/NewerSMBW/blob/no-translations/Kamek/include/game.h#L222).
+
 Credits to [Cyotek](https://github.com/cyotek) for his awesome [Windows Forms Color Picker](https://github.com/cyotek/Cyotek.Windows.Forms.ColorPicker).
 
 # Usage
