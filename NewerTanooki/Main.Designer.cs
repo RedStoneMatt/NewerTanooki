@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.settingsTabPage = new System.Windows.Forms.TabPage();
-            this.starFileGroupBox = new System.Windows.Forms.GroupBox();
+            this.propertiesFileGroupBox = new System.Windows.Forms.GroupBox();
+            this.newInfoButton = new System.Windows.Forms.Button();
+            this.isNewCheckBox = new System.Windows.Forms.CheckBox();
             this.fisInfoButton = new System.Windows.Forms.Button();
             this.fosInfoButton = new System.Windows.Forms.Button();
             this.tsInfoButton = new System.Windows.Forms.Button();
@@ -64,6 +66,9 @@
             this.powerup15NumBox = new System.Windows.Forms.NumericUpDown();
             this.additionsCheckBox = new System.Windows.Forms.CheckBox();
             this.worldGroupBox = new System.Windows.Forms.GroupBox();
+            this.nodeSelectorButton = new System.Windows.Forms.Button();
+            this.label79 = new System.Windows.Forms.Label();
+            this.spentStarCoinsNumBox = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.scoreNumBox = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
@@ -121,6 +126,10 @@
             this.marioLivesNumBox = new System.Windows.Forms.NumericUpDown();
             this.saveNumberComboBox = new System.Windows.Forms.ComboBox();
             this.levelTabPage = new System.Windows.Forms.TabPage();
+            this.unclearWorldNumBox = new System.Windows.Forms.NumericUpDown();
+            this.unclearWorldButton = new System.Windows.Forms.Button();
+            this.unclearAllLevelsButton = new System.Windows.Forms.Button();
+            this.unclearAllLevelsButW9Button = new System.Windows.Forms.Button();
             this.clearWorldNumBox = new System.Windows.Forms.NumericUpDown();
             this.clearWorldButton = new System.Windows.Forms.Button();
             this.clearAllLevelsButton = new System.Windows.Forms.Button();
@@ -138,30 +147,36 @@
             this.levelNumBox = new System.Windows.Forms.NumericUpDown();
             this.worldNumBox = new System.Windows.Forms.NumericUpDown();
             this.newerTabPage = new System.Windows.Forms.TabPage();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.newerMusicID = new System.Windows.Forms.NumericUpDown();
-            this.newerWorldID = new System.Windows.Forms.NumericUpDown();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.titlescreenLevelNumBox = new System.Windows.Forms.NumericUpDown();
-            this.titlescreenWorldNumBox = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.hudColorButton = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.wmTextBottomButton = new System.Windows.Forms.Button();
-            this.wmTextTopButton = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.fsGradientBottomButton = new System.Windows.Forms.Button();
-            this.fsGradientTopButton = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.fsTextBottomButton = new System.Windows.Forms.Button();
-            this.fsTextTopButton = new System.Windows.Forms.Button();
-            this.newerWorldLabel = new System.Windows.Forms.Label();
+            this.switchPalacesGroupBox = new System.Windows.Forms.GroupBox();
+            this.blueSwitchCheckBox = new System.Windows.Forms.CheckBox();
+            this.yellowSwitchCheckBox = new System.Windows.Forms.CheckBox();
+            this.greenSwitchCheckBox = new System.Windows.Forms.CheckBox();
+            this.redSwitchCheckBox = new System.Windows.Forms.CheckBox();
+            this.newerWorldGroupBox = new System.Windows.Forms.GroupBox();
             this.newerWorldTextBox = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.newerWorldLabel = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.fsTextTopButton = new System.Windows.Forms.Button();
+            this.newerMusicID = new System.Windows.Forms.NumericUpDown();
+            this.fsTextBottomButton = new System.Windows.Forms.Button();
+            this.newerWorldID = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.fsGradientTopButton = new System.Windows.Forms.Button();
+            this.titlescreenLevelNumBox = new System.Windows.Forms.NumericUpDown();
+            this.fsGradientBottomButton = new System.Windows.Forms.Button();
+            this.titlescreenWorldNumBox = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.hudColorButton = new System.Windows.Forms.Button();
+            this.wmTextTopButton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.wmTextBottomButton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.headerTabPage = new System.Windows.Forms.TabPage();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -262,11 +277,14 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label79 = new System.Windows.Forms.Label();
-            this.spentStarCoinsNumBox = new System.Windows.Forms.NumericUpDown();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compareSavesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inTheSameSaveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inDifferentSaveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodeEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.settingsTabPage.SuspendLayout();
-            this.starFileGroupBox.SuspendLayout();
+            this.propertiesFileGroupBox.SuspendLayout();
             this.worldAdditionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.powerup16NumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerup8NumBox)).BeginInit();
@@ -278,6 +296,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.powerup14NumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerup15NumBox)).BeginInit();
             this.worldGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spentStarCoinsNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentPathNodeNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentWorldNumBox)).BeginInit();
@@ -303,10 +322,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.marioCoinsNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marioLivesNumBox)).BeginInit();
             this.levelTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.unclearWorldNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearWorldNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.worldNumBox)).BeginInit();
             this.newerTabPage.SuspendLayout();
+            this.switchPalacesGroupBox.SuspendLayout();
+            this.newerWorldGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.newerMusicID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newerWorldID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titlescreenLevelNumBox)).BeginInit();
@@ -359,7 +381,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerF01NumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerF00NumBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spentStarCoinsNumBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -377,7 +398,7 @@
             // 
             // settingsTabPage
             // 
-            this.settingsTabPage.Controls.Add(this.starFileGroupBox);
+            this.settingsTabPage.Controls.Add(this.propertiesFileGroupBox);
             this.settingsTabPage.Controls.Add(this.quickSaveCheckBox);
             this.settingsTabPage.Controls.Add(this.worldAdditionsGroupBox);
             this.settingsTabPage.Controls.Add(this.additionsCheckBox);
@@ -395,30 +416,54 @@
             this.settingsTabPage.Text = "Main Settings";
             this.settingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // starFileGroupBox
+            // propertiesFileGroupBox
             // 
-            this.starFileGroupBox.Controls.Add(this.fisInfoButton);
-            this.starFileGroupBox.Controls.Add(this.fosInfoButton);
-            this.starFileGroupBox.Controls.Add(this.tsInfoButton);
-            this.starFileGroupBox.Controls.Add(this.ssInfoButton);
-            this.starFileGroupBox.Controls.Add(this.fsInfoButton);
-            this.starFileGroupBox.Controls.Add(this.fifthStarCheckBox);
-            this.starFileGroupBox.Controls.Add(this.fourthStarCheckBox);
-            this.starFileGroupBox.Controls.Add(this.thirdStarCheckBox);
-            this.starFileGroupBox.Controls.Add(this.secondStarCheckBox);
-            this.starFileGroupBox.Controls.Add(this.firstStarCheckBox);
-            this.starFileGroupBox.Location = new System.Drawing.Point(566, 136);
-            this.starFileGroupBox.Name = "starFileGroupBox";
-            this.starFileGroupBox.Size = new System.Drawing.Size(135, 169);
-            this.starFileGroupBox.TabIndex = 10;
-            this.starFileGroupBox.TabStop = false;
-            this.starFileGroupBox.Text = "File Stars";
+            this.propertiesFileGroupBox.Controls.Add(this.newInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.isNewCheckBox);
+            this.propertiesFileGroupBox.Controls.Add(this.fisInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.fosInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.tsInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.ssInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.fsInfoButton);
+            this.propertiesFileGroupBox.Controls.Add(this.fifthStarCheckBox);
+            this.propertiesFileGroupBox.Controls.Add(this.fourthStarCheckBox);
+            this.propertiesFileGroupBox.Controls.Add(this.thirdStarCheckBox);
+            this.propertiesFileGroupBox.Controls.Add(this.secondStarCheckBox);
+            this.propertiesFileGroupBox.Controls.Add(this.firstStarCheckBox);
+            this.propertiesFileGroupBox.Location = new System.Drawing.Point(566, 111);
+            this.propertiesFileGroupBox.Name = "propertiesFileGroupBox";
+            this.propertiesFileGroupBox.Size = new System.Drawing.Size(135, 194);
+            this.propertiesFileGroupBox.TabIndex = 10;
+            this.propertiesFileGroupBox.TabStop = false;
+            this.propertiesFileGroupBox.Text = "File Properties";
+            // 
+            // newInfoButton
+            // 
+            this.newInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newInfoButton.BackgroundImage")));
+            this.newInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.newInfoButton.Location = new System.Drawing.Point(101, 15);
+            this.newInfoButton.Name = "newInfoButton";
+            this.newInfoButton.Size = new System.Drawing.Size(26, 26);
+            this.newInfoButton.TabIndex = 36;
+            this.newInfoButton.UseVisualStyleBackColor = true;
+            this.newInfoButton.Click += new System.EventHandler(this.newInfoButton_Click);
+            // 
+            // isNewCheckBox
+            // 
+            this.isNewCheckBox.AutoSize = true;
+            this.isNewCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.isNewCheckBox.Name = "isNewCheckBox";
+            this.isNewCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.isNewCheckBox.TabIndex = 35;
+            this.isNewCheckBox.Text = "Is File New";
+            this.isNewCheckBox.UseVisualStyleBackColor = true;
+            this.isNewCheckBox.CheckedChanged += new System.EventHandler(this.starCheckBox_CheckedChanged);
             // 
             // fisInfoButton
             // 
             this.fisInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fisInfoButton.BackgroundImage")));
             this.fisInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fisInfoButton.Location = new System.Drawing.Point(103, 135);
+            this.fisInfoButton.Location = new System.Drawing.Point(101, 164);
             this.fisInfoButton.Name = "fisInfoButton";
             this.fisInfoButton.Size = new System.Drawing.Size(26, 26);
             this.fisInfoButton.TabIndex = 34;
@@ -429,7 +474,7 @@
             // 
             this.fosInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fosInfoButton.BackgroundImage")));
             this.fosInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fosInfoButton.Location = new System.Drawing.Point(103, 104);
+            this.fosInfoButton.Location = new System.Drawing.Point(101, 133);
             this.fosInfoButton.Name = "fosInfoButton";
             this.fosInfoButton.Size = new System.Drawing.Size(26, 26);
             this.fosInfoButton.TabIndex = 33;
@@ -440,7 +485,7 @@
             // 
             this.tsInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tsInfoButton.BackgroundImage")));
             this.tsInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.tsInfoButton.Location = new System.Drawing.Point(103, 74);
+            this.tsInfoButton.Location = new System.Drawing.Point(101, 103);
             this.tsInfoButton.Name = "tsInfoButton";
             this.tsInfoButton.Size = new System.Drawing.Size(26, 26);
             this.tsInfoButton.TabIndex = 32;
@@ -451,7 +496,7 @@
             // 
             this.ssInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ssInfoButton.BackgroundImage")));
             this.ssInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ssInfoButton.Location = new System.Drawing.Point(103, 44);
+            this.ssInfoButton.Location = new System.Drawing.Point(101, 73);
             this.ssInfoButton.Name = "ssInfoButton";
             this.ssInfoButton.Size = new System.Drawing.Size(26, 26);
             this.ssInfoButton.TabIndex = 31;
@@ -462,7 +507,7 @@
             // 
             this.fsInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fsInfoButton.BackgroundImage")));
             this.fsInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fsInfoButton.Location = new System.Drawing.Point(103, 15);
+            this.fsInfoButton.Location = new System.Drawing.Point(101, 44);
             this.fsInfoButton.Name = "fsInfoButton";
             this.fsInfoButton.Size = new System.Drawing.Size(26, 26);
             this.fsInfoButton.TabIndex = 30;
@@ -472,7 +517,7 @@
             // fifthStarCheckBox
             // 
             this.fifthStarCheckBox.AutoSize = true;
-            this.fifthStarCheckBox.Location = new System.Drawing.Point(8, 139);
+            this.fifthStarCheckBox.Location = new System.Drawing.Point(6, 168);
             this.fifthStarCheckBox.Name = "fifthStarCheckBox";
             this.fifthStarCheckBox.Size = new System.Drawing.Size(68, 17);
             this.fifthStarCheckBox.TabIndex = 4;
@@ -483,7 +528,7 @@
             // fourthStarCheckBox
             // 
             this.fourthStarCheckBox.AutoSize = true;
-            this.fourthStarCheckBox.Location = new System.Drawing.Point(8, 108);
+            this.fourthStarCheckBox.Location = new System.Drawing.Point(6, 137);
             this.fourthStarCheckBox.Name = "fourthStarCheckBox";
             this.fourthStarCheckBox.Size = new System.Drawing.Size(78, 17);
             this.fourthStarCheckBox.TabIndex = 3;
@@ -494,7 +539,7 @@
             // thirdStarCheckBox
             // 
             this.thirdStarCheckBox.AutoSize = true;
-            this.thirdStarCheckBox.Location = new System.Drawing.Point(8, 78);
+            this.thirdStarCheckBox.Location = new System.Drawing.Point(6, 107);
             this.thirdStarCheckBox.Name = "thirdStarCheckBox";
             this.thirdStarCheckBox.Size = new System.Drawing.Size(72, 17);
             this.thirdStarCheckBox.TabIndex = 2;
@@ -505,7 +550,7 @@
             // secondStarCheckBox
             // 
             this.secondStarCheckBox.AutoSize = true;
-            this.secondStarCheckBox.Location = new System.Drawing.Point(8, 48);
+            this.secondStarCheckBox.Location = new System.Drawing.Point(6, 77);
             this.secondStarCheckBox.Name = "secondStarCheckBox";
             this.secondStarCheckBox.Size = new System.Drawing.Size(85, 17);
             this.secondStarCheckBox.TabIndex = 1;
@@ -516,7 +561,7 @@
             // firstStarCheckBox
             // 
             this.firstStarCheckBox.AutoSize = true;
-            this.firstStarCheckBox.Location = new System.Drawing.Point(8, 19);
+            this.firstStarCheckBox.Location = new System.Drawing.Point(6, 48);
             this.firstStarCheckBox.Name = "firstStarCheckBox";
             this.firstStarCheckBox.Size = new System.Drawing.Size(67, 17);
             this.firstStarCheckBox.TabIndex = 0;
@@ -765,6 +810,7 @@
             // 
             // worldGroupBox
             // 
+            this.worldGroupBox.Controls.Add(this.nodeSelectorButton);
             this.worldGroupBox.Controls.Add(this.label79);
             this.worldGroupBox.Controls.Add(this.spentStarCoinsNumBox);
             this.worldGroupBox.Controls.Add(this.label18);
@@ -781,6 +827,37 @@
             this.worldGroupBox.TabStop = false;
             this.worldGroupBox.Text = "World Data";
             // 
+            // nodeSelectorButton
+            // 
+            this.nodeSelectorButton.Location = new System.Drawing.Point(132, 323);
+            this.nodeSelectorButton.Name = "nodeSelectorButton";
+            this.nodeSelectorButton.Size = new System.Drawing.Size(27, 23);
+            this.nodeSelectorButton.TabIndex = 9;
+            this.nodeSelectorButton.Text = "O";
+            this.nodeSelectorButton.UseVisualStyleBackColor = true;
+            this.nodeSelectorButton.Click += new System.EventHandler(this.nodeSelectorButton_Click);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(4, 362);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(89, 13);
+            this.label79.TabIndex = 8;
+            this.label79.Text = "Spent Star Coins:";
+            // 
+            // spentStarCoinsNumBox
+            // 
+            this.spentStarCoinsNumBox.Location = new System.Drawing.Point(6, 378);
+            this.spentStarCoinsNumBox.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.spentStarCoinsNumBox.Name = "spentStarCoinsNumBox";
+            this.spentStarCoinsNumBox.Size = new System.Drawing.Size(120, 20);
+            this.spentStarCoinsNumBox.TabIndex = 7;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -794,7 +871,7 @@
             // 
             this.scoreNumBox.Location = new System.Drawing.Point(6, 339);
             this.scoreNumBox.Maximum = new decimal(new int[] {
-            65535,
+            -1,
             0,
             0,
             0});
@@ -1434,6 +1511,10 @@
             // 
             // levelTabPage
             // 
+            this.levelTabPage.Controls.Add(this.unclearWorldNumBox);
+            this.levelTabPage.Controls.Add(this.unclearWorldButton);
+            this.levelTabPage.Controls.Add(this.unclearAllLevelsButton);
+            this.levelTabPage.Controls.Add(this.unclearAllLevelsButW9Button);
             this.levelTabPage.Controls.Add(this.clearWorldNumBox);
             this.levelTabPage.Controls.Add(this.clearWorldButton);
             this.levelTabPage.Controls.Add(this.clearAllLevelsButton);
@@ -1458,9 +1539,62 @@
             this.levelTabPage.Text = "Level Completions";
             this.levelTabPage.UseVisualStyleBackColor = true;
             // 
+            // unclearWorldNumBox
+            // 
+            this.unclearWorldNumBox.Location = new System.Drawing.Point(343, 155);
+            this.unclearWorldNumBox.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.unclearWorldNumBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.unclearWorldNumBox.Name = "unclearWorldNumBox";
+            this.unclearWorldNumBox.Size = new System.Drawing.Size(34, 20);
+            this.unclearWorldNumBox.TabIndex = 19;
+            this.unclearWorldNumBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.unclearWorldNumBox.ValueChanged += new System.EventHandler(this.unclearWorldNumBox_ValueChanged);
+            // 
+            // unclearWorldButton
+            // 
+            this.unclearWorldButton.Location = new System.Drawing.Point(175, 154);
+            this.unclearWorldButton.Name = "unclearWorldButton";
+            this.unclearWorldButton.Size = new System.Drawing.Size(162, 23);
+            this.unclearWorldButton.TabIndex = 18;
+            this.unclearWorldButton.Text = "Unclear World 1";
+            this.unclearWorldButton.UseVisualStyleBackColor = true;
+            this.unclearWorldButton.Click += new System.EventHandler(this.unclearWorldButton_Click);
+            // 
+            // unclearAllLevelsButton
+            // 
+            this.unclearAllLevelsButton.Location = new System.Drawing.Point(175, 125);
+            this.unclearAllLevelsButton.Name = "unclearAllLevelsButton";
+            this.unclearAllLevelsButton.Size = new System.Drawing.Size(162, 23);
+            this.unclearAllLevelsButton.TabIndex = 17;
+            this.unclearAllLevelsButton.Text = "Unclear Levels (W9 included)";
+            this.unclearAllLevelsButton.UseVisualStyleBackColor = true;
+            this.unclearAllLevelsButton.Click += new System.EventHandler(this.unclearAllLevelsButton_Click);
+            // 
+            // unclearAllLevelsButW9Button
+            // 
+            this.unclearAllLevelsButW9Button.Location = new System.Drawing.Point(175, 96);
+            this.unclearAllLevelsButW9Button.Name = "unclearAllLevelsButW9Button";
+            this.unclearAllLevelsButW9Button.Size = new System.Drawing.Size(162, 23);
+            this.unclearAllLevelsButW9Button.TabIndex = 16;
+            this.unclearAllLevelsButW9Button.Text = "Unclear Levels (except W9)";
+            this.unclearAllLevelsButW9Button.UseVisualStyleBackColor = true;
+            this.unclearAllLevelsButW9Button.Click += new System.EventHandler(this.unclearAllLevelsButW9Button_Click);
+            // 
             // clearWorldNumBox
             // 
-            this.clearWorldNumBox.Location = new System.Drawing.Point(332, 69);
+            this.clearWorldNumBox.Location = new System.Drawing.Point(343, 68);
             this.clearWorldNumBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -1485,7 +1619,7 @@
             // 
             this.clearWorldButton.Location = new System.Drawing.Point(175, 67);
             this.clearWorldButton.Name = "clearWorldButton";
-            this.clearWorldButton.Size = new System.Drawing.Size(151, 23);
+            this.clearWorldButton.Size = new System.Drawing.Size(162, 23);
             this.clearWorldButton.TabIndex = 14;
             this.clearWorldButton.Text = "Clear World 1";
             this.clearWorldButton.UseVisualStyleBackColor = true;
@@ -1495,7 +1629,7 @@
             // 
             this.clearAllLevelsButton.Location = new System.Drawing.Point(175, 38);
             this.clearAllLevelsButton.Name = "clearAllLevelsButton";
-            this.clearAllLevelsButton.Size = new System.Drawing.Size(151, 23);
+            this.clearAllLevelsButton.Size = new System.Drawing.Size(162, 23);
             this.clearAllLevelsButton.TabIndex = 13;
             this.clearAllLevelsButton.Text = "Clear Levels (W9 included)";
             this.clearAllLevelsButton.UseVisualStyleBackColor = true;
@@ -1505,7 +1639,7 @@
             // 
             this.clearAllLevelsButW9Button.Location = new System.Drawing.Point(175, 9);
             this.clearAllLevelsButW9Button.Name = "clearAllLevelsButW9Button";
-            this.clearAllLevelsButW9Button.Size = new System.Drawing.Size(151, 23);
+            this.clearAllLevelsButW9Button.Size = new System.Drawing.Size(162, 23);
             this.clearAllLevelsButW9Button.TabIndex = 12;
             this.clearAllLevelsButW9Button.Text = "Clear Levels (except W9)";
             this.clearAllLevelsButW9Button.UseVisualStyleBackColor = true;
@@ -1665,30 +1799,8 @@
             // 
             // newerTabPage
             // 
-            this.newerTabPage.Controls.Add(this.label78);
-            this.newerTabPage.Controls.Add(this.label77);
-            this.newerTabPage.Controls.Add(this.newerMusicID);
-            this.newerTabPage.Controls.Add(this.newerWorldID);
-            this.newerTabPage.Controls.Add(this.label75);
-            this.newerTabPage.Controls.Add(this.label76);
-            this.newerTabPage.Controls.Add(this.titlescreenLevelNumBox);
-            this.newerTabPage.Controls.Add(this.titlescreenWorldNumBox);
-            this.newerTabPage.Controls.Add(this.label17);
-            this.newerTabPage.Controls.Add(this.hudColorButton);
-            this.newerTabPage.Controls.Add(this.label15);
-            this.newerTabPage.Controls.Add(this.label16);
-            this.newerTabPage.Controls.Add(this.wmTextBottomButton);
-            this.newerTabPage.Controls.Add(this.wmTextTopButton);
-            this.newerTabPage.Controls.Add(this.label13);
-            this.newerTabPage.Controls.Add(this.label14);
-            this.newerTabPage.Controls.Add(this.fsGradientBottomButton);
-            this.newerTabPage.Controls.Add(this.fsGradientTopButton);
-            this.newerTabPage.Controls.Add(this.label12);
-            this.newerTabPage.Controls.Add(this.label11);
-            this.newerTabPage.Controls.Add(this.fsTextBottomButton);
-            this.newerTabPage.Controls.Add(this.fsTextTopButton);
-            this.newerTabPage.Controls.Add(this.newerWorldLabel);
-            this.newerTabPage.Controls.Add(this.newerWorldTextBox);
+            this.newerTabPage.Controls.Add(this.switchPalacesGroupBox);
+            this.newerTabPage.Controls.Add(this.newerWorldGroupBox);
             this.newerTabPage.Location = new System.Drawing.Point(4, 22);
             this.newerTabPage.Name = "newerTabPage";
             this.newerTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1697,27 +1809,143 @@
             this.newerTabPage.Text = "NewerSMBW Settings";
             this.newerTabPage.UseVisualStyleBackColor = true;
             // 
+            // switchPalacesGroupBox
+            // 
+            this.switchPalacesGroupBox.Controls.Add(this.blueSwitchCheckBox);
+            this.switchPalacesGroupBox.Controls.Add(this.yellowSwitchCheckBox);
+            this.switchPalacesGroupBox.Controls.Add(this.greenSwitchCheckBox);
+            this.switchPalacesGroupBox.Controls.Add(this.redSwitchCheckBox);
+            this.switchPalacesGroupBox.Location = new System.Drawing.Point(413, 6);
+            this.switchPalacesGroupBox.Name = "switchPalacesGroupBox";
+            this.switchPalacesGroupBox.Size = new System.Drawing.Size(96, 113);
+            this.switchPalacesGroupBox.TabIndex = 25;
+            this.switchPalacesGroupBox.TabStop = false;
+            this.switchPalacesGroupBox.Text = "Switch Palaces";
+            // 
+            // blueSwitchCheckBox
+            // 
+            this.blueSwitchCheckBox.AutoSize = true;
+            this.blueSwitchCheckBox.Location = new System.Drawing.Point(6, 88);
+            this.blueSwitchCheckBox.Name = "blueSwitchCheckBox";
+            this.blueSwitchCheckBox.Size = new System.Drawing.Size(47, 17);
+            this.blueSwitchCheckBox.TabIndex = 3;
+            this.blueSwitchCheckBox.Text = "Blue";
+            this.blueSwitchCheckBox.UseVisualStyleBackColor = true;
+            this.blueSwitchCheckBox.CheckedChanged += new System.EventHandler(this.switchCheckBox_CheckedChanged);
+            // 
+            // yellowSwitchCheckBox
+            // 
+            this.yellowSwitchCheckBox.AutoSize = true;
+            this.yellowSwitchCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.yellowSwitchCheckBox.Name = "yellowSwitchCheckBox";
+            this.yellowSwitchCheckBox.Size = new System.Drawing.Size(57, 17);
+            this.yellowSwitchCheckBox.TabIndex = 2;
+            this.yellowSwitchCheckBox.Text = "Yellow";
+            this.yellowSwitchCheckBox.UseVisualStyleBackColor = true;
+            this.yellowSwitchCheckBox.CheckedChanged += new System.EventHandler(this.switchCheckBox_CheckedChanged);
+            // 
+            // greenSwitchCheckBox
+            // 
+            this.greenSwitchCheckBox.AutoSize = true;
+            this.greenSwitchCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.greenSwitchCheckBox.Name = "greenSwitchCheckBox";
+            this.greenSwitchCheckBox.Size = new System.Drawing.Size(55, 17);
+            this.greenSwitchCheckBox.TabIndex = 1;
+            this.greenSwitchCheckBox.Text = "Green";
+            this.greenSwitchCheckBox.UseVisualStyleBackColor = true;
+            this.greenSwitchCheckBox.CheckedChanged += new System.EventHandler(this.switchCheckBox_CheckedChanged);
+            // 
+            // redSwitchCheckBox
+            // 
+            this.redSwitchCheckBox.AutoSize = true;
+            this.redSwitchCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.redSwitchCheckBox.Name = "redSwitchCheckBox";
+            this.redSwitchCheckBox.Size = new System.Drawing.Size(46, 17);
+            this.redSwitchCheckBox.TabIndex = 0;
+            this.redSwitchCheckBox.Text = "Red";
+            this.redSwitchCheckBox.UseVisualStyleBackColor = true;
+            this.redSwitchCheckBox.CheckedChanged += new System.EventHandler(this.switchCheckBox_CheckedChanged);
+            // 
+            // newerWorldGroupBox
+            // 
+            this.newerWorldGroupBox.Controls.Add(this.newerWorldTextBox);
+            this.newerWorldGroupBox.Controls.Add(this.label78);
+            this.newerWorldGroupBox.Controls.Add(this.newerWorldLabel);
+            this.newerWorldGroupBox.Controls.Add(this.label77);
+            this.newerWorldGroupBox.Controls.Add(this.fsTextTopButton);
+            this.newerWorldGroupBox.Controls.Add(this.newerMusicID);
+            this.newerWorldGroupBox.Controls.Add(this.fsTextBottomButton);
+            this.newerWorldGroupBox.Controls.Add(this.newerWorldID);
+            this.newerWorldGroupBox.Controls.Add(this.label11);
+            this.newerWorldGroupBox.Controls.Add(this.label75);
+            this.newerWorldGroupBox.Controls.Add(this.label12);
+            this.newerWorldGroupBox.Controls.Add(this.label76);
+            this.newerWorldGroupBox.Controls.Add(this.fsGradientTopButton);
+            this.newerWorldGroupBox.Controls.Add(this.titlescreenLevelNumBox);
+            this.newerWorldGroupBox.Controls.Add(this.fsGradientBottomButton);
+            this.newerWorldGroupBox.Controls.Add(this.titlescreenWorldNumBox);
+            this.newerWorldGroupBox.Controls.Add(this.label14);
+            this.newerWorldGroupBox.Controls.Add(this.label17);
+            this.newerWorldGroupBox.Controls.Add(this.label13);
+            this.newerWorldGroupBox.Controls.Add(this.hudColorButton);
+            this.newerWorldGroupBox.Controls.Add(this.wmTextTopButton);
+            this.newerWorldGroupBox.Controls.Add(this.label15);
+            this.newerWorldGroupBox.Controls.Add(this.wmTextBottomButton);
+            this.newerWorldGroupBox.Controls.Add(this.label16);
+            this.newerWorldGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.newerWorldGroupBox.Name = "newerWorldGroupBox";
+            this.newerWorldGroupBox.Size = new System.Drawing.Size(401, 343);
+            this.newerWorldGroupBox.TabIndex = 24;
+            this.newerWorldGroupBox.TabStop = false;
+            this.newerWorldGroupBox.Text = "World Data - NewerSMBW";
+            // 
+            // newerWorldTextBox
+            // 
+            this.newerWorldTextBox.Location = new System.Drawing.Point(121, 19);
+            this.newerWorldTextBox.MaxLength = 32;
+            this.newerWorldTextBox.Name = "newerWorldTextBox";
+            this.newerWorldTextBox.Size = new System.Drawing.Size(267, 20);
+            this.newerWorldTextBox.TabIndex = 0;
+            // 
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(16, 294);
+            this.label78.Location = new System.Drawing.Point(9, 304);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(99, 13);
             this.label78.TabIndex = 23;
             this.label78.Text = "Current Map Music:";
             // 
+            // newerWorldLabel
+            // 
+            this.newerWorldLabel.AutoSize = true;
+            this.newerWorldLabel.Location = new System.Drawing.Point(9, 22);
+            this.newerWorldLabel.Name = "newerWorldLabel";
+            this.newerWorldLabel.Size = new System.Drawing.Size(106, 13);
+            this.newerWorldLabel.TabIndex = 1;
+            this.newerWorldLabel.Text = "Current World Name:";
+            // 
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(16, 268);
+            this.label77.Location = new System.Drawing.Point(9, 278);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(89, 13);
             this.label77.TabIndex = 22;
             this.label77.Text = "Current World ID:";
             // 
+            // fsTextTopButton
+            // 
+            this.fsTextTopButton.Location = new System.Drawing.Point(121, 45);
+            this.fsTextTopButton.Name = "fsTextTopButton";
+            this.fsTextTopButton.Size = new System.Drawing.Size(267, 23);
+            this.fsTextTopButton.TabIndex = 2;
+            this.fsTextTopButton.UseVisualStyleBackColor = true;
+            this.fsTextTopButton.Click += new System.EventHandler(this.fsTextTopButton_Click);
+            // 
             // newerMusicID
             // 
-            this.newerMusicID.Location = new System.Drawing.Point(128, 291);
+            this.newerMusicID.Location = new System.Drawing.Point(121, 301);
             this.newerMusicID.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1727,9 +1955,18 @@
             this.newerMusicID.Size = new System.Drawing.Size(267, 20);
             this.newerMusicID.TabIndex = 21;
             // 
+            // fsTextBottomButton
+            // 
+            this.fsTextBottomButton.Location = new System.Drawing.Point(121, 74);
+            this.fsTextBottomButton.Name = "fsTextBottomButton";
+            this.fsTextBottomButton.Size = new System.Drawing.Size(267, 23);
+            this.fsTextBottomButton.TabIndex = 3;
+            this.fsTextBottomButton.UseVisualStyleBackColor = true;
+            this.fsTextBottomButton.Click += new System.EventHandler(this.fsTextBottomButton_Click);
+            // 
             // newerWorldID
             // 
-            this.newerWorldID.Location = new System.Drawing.Point(128, 265);
+            this.newerWorldID.Location = new System.Drawing.Point(121, 275);
             this.newerWorldID.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1739,27 +1976,54 @@
             this.newerWorldID.Size = new System.Drawing.Size(267, 20);
             this.newerWorldID.TabIndex = 20;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 49);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "FS Text Top:";
+            // 
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(164, 241);
+            this.label75.Location = new System.Drawing.Point(157, 251);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(10, 13);
             this.label75.TabIndex = 19;
             this.label75.Text = "-";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 78);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "FS Text Bottom:";
+            // 
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(16, 241);
+            this.label76.Location = new System.Drawing.Point(9, 251);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(91, 13);
             this.label76.TabIndex = 18;
             this.label76.Text = "Titlescreen Level:";
             // 
+            // fsGradientTopButton
+            // 
+            this.fsGradientTopButton.Location = new System.Drawing.Point(121, 103);
+            this.fsGradientTopButton.Name = "fsGradientTopButton";
+            this.fsGradientTopButton.Size = new System.Drawing.Size(267, 23);
+            this.fsGradientTopButton.TabIndex = 6;
+            this.fsGradientTopButton.UseVisualStyleBackColor = true;
+            this.fsGradientTopButton.Click += new System.EventHandler(this.fsGradientTopButton_Click);
+            // 
             // titlescreenLevelNumBox
             // 
-            this.titlescreenLevelNumBox.Location = new System.Drawing.Point(175, 238);
+            this.titlescreenLevelNumBox.Location = new System.Drawing.Point(168, 248);
             this.titlescreenLevelNumBox.Maximum = new decimal(new int[] {
             42,
             0,
@@ -1779,9 +2043,18 @@
             0,
             0});
             // 
+            // fsGradientBottomButton
+            // 
+            this.fsGradientBottomButton.Location = new System.Drawing.Point(121, 132);
+            this.fsGradientBottomButton.Name = "fsGradientBottomButton";
+            this.fsGradientBottomButton.Size = new System.Drawing.Size(267, 23);
+            this.fsGradientBottomButton.TabIndex = 7;
+            this.fsGradientBottomButton.UseVisualStyleBackColor = true;
+            this.fsGradientBottomButton.Click += new System.EventHandler(this.fsGradientBottomButton_Click);
+            // 
             // titlescreenWorldNumBox
             // 
-            this.titlescreenWorldNumBox.Location = new System.Drawing.Point(128, 238);
+            this.titlescreenWorldNumBox.Location = new System.Drawing.Point(121, 248);
             this.titlescreenWorldNumBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -1801,148 +2074,77 @@
             0,
             0});
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 107);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "FS Gradient Top:";
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 213);
+            this.label17.Location = new System.Drawing.Point(9, 223);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 13);
             this.label17.TabIndex = 15;
             this.label17.Text = "HUD Color:";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(9, 136);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "FS Gradient Bottom:";
+            // 
             // hudColorButton
             // 
-            this.hudColorButton.Location = new System.Drawing.Point(128, 209);
+            this.hudColorButton.Location = new System.Drawing.Point(121, 219);
             this.hudColorButton.Name = "hudColorButton";
             this.hudColorButton.Size = new System.Drawing.Size(267, 23);
             this.hudColorButton.TabIndex = 14;
             this.hudColorButton.UseVisualStyleBackColor = true;
             this.hudColorButton.Click += new System.EventHandler(this.hudColorButton_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 184);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(90, 13);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "WM Text Bottom:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 155);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(76, 13);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "WM Text Top:";
-            // 
-            // wmTextBottomButton
-            // 
-            this.wmTextBottomButton.Location = new System.Drawing.Point(128, 180);
-            this.wmTextBottomButton.Name = "wmTextBottomButton";
-            this.wmTextBottomButton.Size = new System.Drawing.Size(267, 23);
-            this.wmTextBottomButton.TabIndex = 11;
-            this.wmTextBottomButton.UseVisualStyleBackColor = true;
-            this.wmTextBottomButton.Click += new System.EventHandler(this.wmTextBottomButton_Click);
-            // 
             // wmTextTopButton
             // 
-            this.wmTextTopButton.Location = new System.Drawing.Point(128, 151);
+            this.wmTextTopButton.Location = new System.Drawing.Point(121, 161);
             this.wmTextTopButton.Name = "wmTextTopButton";
             this.wmTextTopButton.Size = new System.Drawing.Size(267, 23);
             this.wmTextTopButton.TabIndex = 10;
             this.wmTextTopButton.UseVisualStyleBackColor = true;
             this.wmTextTopButton.Click += new System.EventHandler(this.wmTextTopButton_Click);
             // 
-            // label13
+            // label15
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 126);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 13);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "FS Gradient Bottom:";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 194);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 13);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "WM Text Bottom:";
             // 
-            // label14
+            // wmTextBottomButton
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 97);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "FS Gradient Top:";
+            this.wmTextBottomButton.Location = new System.Drawing.Point(121, 190);
+            this.wmTextBottomButton.Name = "wmTextBottomButton";
+            this.wmTextBottomButton.Size = new System.Drawing.Size(267, 23);
+            this.wmTextBottomButton.TabIndex = 11;
+            this.wmTextBottomButton.UseVisualStyleBackColor = true;
+            this.wmTextBottomButton.Click += new System.EventHandler(this.wmTextBottomButton_Click);
             // 
-            // fsGradientBottomButton
+            // label16
             // 
-            this.fsGradientBottomButton.Location = new System.Drawing.Point(128, 122);
-            this.fsGradientBottomButton.Name = "fsGradientBottomButton";
-            this.fsGradientBottomButton.Size = new System.Drawing.Size(267, 23);
-            this.fsGradientBottomButton.TabIndex = 7;
-            this.fsGradientBottomButton.UseVisualStyleBackColor = true;
-            this.fsGradientBottomButton.Click += new System.EventHandler(this.fsGradientBottomButton_Click);
-            // 
-            // fsGradientTopButton
-            // 
-            this.fsGradientTopButton.Location = new System.Drawing.Point(128, 93);
-            this.fsGradientTopButton.Name = "fsGradientTopButton";
-            this.fsGradientTopButton.Size = new System.Drawing.Size(267, 23);
-            this.fsGradientTopButton.TabIndex = 6;
-            this.fsGradientTopButton.UseVisualStyleBackColor = true;
-            this.fsGradientTopButton.Click += new System.EventHandler(this.fsGradientTopButton_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "FS Text Bottom:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "FS Text Top:";
-            // 
-            // fsTextBottomButton
-            // 
-            this.fsTextBottomButton.Location = new System.Drawing.Point(128, 64);
-            this.fsTextBottomButton.Name = "fsTextBottomButton";
-            this.fsTextBottomButton.Size = new System.Drawing.Size(267, 23);
-            this.fsTextBottomButton.TabIndex = 3;
-            this.fsTextBottomButton.UseVisualStyleBackColor = true;
-            this.fsTextBottomButton.Click += new System.EventHandler(this.fsTextBottomButton_Click);
-            // 
-            // fsTextTopButton
-            // 
-            this.fsTextTopButton.Location = new System.Drawing.Point(128, 35);
-            this.fsTextTopButton.Name = "fsTextTopButton";
-            this.fsTextTopButton.Size = new System.Drawing.Size(267, 23);
-            this.fsTextTopButton.TabIndex = 2;
-            this.fsTextTopButton.UseVisualStyleBackColor = true;
-            this.fsTextTopButton.Click += new System.EventHandler(this.fsTextTopButton_Click);
-            // 
-            // newerWorldLabel
-            // 
-            this.newerWorldLabel.AutoSize = true;
-            this.newerWorldLabel.Location = new System.Drawing.Point(16, 12);
-            this.newerWorldLabel.Name = "newerWorldLabel";
-            this.newerWorldLabel.Size = new System.Drawing.Size(106, 13);
-            this.newerWorldLabel.TabIndex = 1;
-            this.newerWorldLabel.Text = "Current World Name:";
-            // 
-            // newerWorldTextBox
-            // 
-            this.newerWorldTextBox.Location = new System.Drawing.Point(128, 9);
-            this.newerWorldTextBox.MaxLength = 32;
-            this.newerWorldTextBox.Name = "newerWorldTextBox";
-            this.newerWorldTextBox.Size = new System.Drawing.Size(267, 20);
-            this.newerWorldTextBox.TabIndex = 0;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 165);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 13);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "WM Text Top:";
             // 
             // headerTabPage
             // 
@@ -2855,6 +3057,7 @@
             // 
             // currentSaveSONumBox
             // 
+            this.currentSaveSONumBox.Enabled = false;
             this.currentSaveSONumBox.Location = new System.Drawing.Point(238, 143);
             this.currentSaveSONumBox.Maximum = new decimal(new int[] {
             255,
@@ -2862,6 +3065,7 @@
             0,
             0});
             this.currentSaveSONumBox.Name = "currentSaveSONumBox";
+            this.currentSaveSONumBox.ReadOnly = true;
             this.currentSaveSONumBox.Size = new System.Drawing.Size(155, 20);
             this.currentSaveSONumBox.TabIndex = 23;
             // 
@@ -3085,7 +3289,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(774, 24);
@@ -3143,26 +3348,48 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // label79
+            // toolsToolStripMenuItem
             // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(4, 362);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(89, 13);
-            this.label79.TabIndex = 8;
-            this.label79.Text = "Spent Star Coins:";
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compareSavesToolStripMenuItem,
+            this.nodeEditorToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
-            // spentStarCoinsNumBox
+            // compareSavesToolStripMenuItem
             // 
-            this.spentStarCoinsNumBox.Location = new System.Drawing.Point(6, 378);
-            this.spentStarCoinsNumBox.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.spentStarCoinsNumBox.Name = "spentStarCoinsNumBox";
-            this.spentStarCoinsNumBox.Size = new System.Drawing.Size(120, 20);
-            this.spentStarCoinsNumBox.TabIndex = 7;
+            this.compareSavesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inTheSameSaveFileToolStripMenuItem,
+            this.inDifferentSaveFilesToolStripMenuItem});
+            this.compareSavesToolStripMenuItem.Name = "compareSavesToolStripMenuItem";
+            this.compareSavesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compareSavesToolStripMenuItem.Text = "Compare Saves";
+            // 
+            // inTheSameSaveFileToolStripMenuItem
+            // 
+            this.inTheSameSaveFileToolStripMenuItem.Name = "inTheSameSaveFileToolStripMenuItem";
+            this.inTheSameSaveFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.inTheSameSaveFileToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.inTheSameSaveFileToolStripMenuItem.Text = "In the same save file";
+            this.inTheSameSaveFileToolStripMenuItem.Click += new System.EventHandler(this.inTheSameSaveFileToolStripMenuItem_Click);
+            // 
+            // inDifferentSaveFilesToolStripMenuItem
+            // 
+            this.inDifferentSaveFilesToolStripMenuItem.Name = "inDifferentSaveFilesToolStripMenuItem";
+            this.inDifferentSaveFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J)));
+            this.inDifferentSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.inDifferentSaveFilesToolStripMenuItem.Text = "In different save files";
+            this.inDifferentSaveFilesToolStripMenuItem.Click += new System.EventHandler(this.inDifferentSaveFilesToolStripMenuItem_Click);
+            // 
+            // nodeEditorToolStripMenuItem
+            // 
+            this.nodeEditorToolStripMenuItem.Name = "nodeEditorToolStripMenuItem";
+            this.nodeEditorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.nodeEditorToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.nodeEditorToolStripMenuItem.Text = "Node Editor";
+            this.nodeEditorToolStripMenuItem.Click += new System.EventHandler(this.nodeEditorToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -3181,8 +3408,8 @@
             this.mainTabControl.ResumeLayout(false);
             this.settingsTabPage.ResumeLayout(false);
             this.settingsTabPage.PerformLayout();
-            this.starFileGroupBox.ResumeLayout(false);
-            this.starFileGroupBox.PerformLayout();
+            this.propertiesFileGroupBox.ResumeLayout(false);
+            this.propertiesFileGroupBox.PerformLayout();
             this.worldAdditionsGroupBox.ResumeLayout(false);
             this.worldAdditionsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.powerup16NumBox)).EndInit();
@@ -3196,6 +3423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.powerup15NumBox)).EndInit();
             this.worldGroupBox.ResumeLayout(false);
             this.worldGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spentStarCoinsNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentPathNodeNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentWorldNumBox)).EndInit();
@@ -3227,11 +3455,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.marioLivesNumBox)).EndInit();
             this.levelTabPage.ResumeLayout(false);
             this.levelTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.unclearWorldNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearWorldNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.worldNumBox)).EndInit();
             this.newerTabPage.ResumeLayout(false);
-            this.newerTabPage.PerformLayout();
+            this.switchPalacesGroupBox.ResumeLayout(false);
+            this.switchPalacesGroupBox.PerformLayout();
+            this.newerWorldGroupBox.ResumeLayout(false);
+            this.newerWorldGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.newerMusicID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newerWorldID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titlescreenLevelNumBox)).EndInit();
@@ -3289,7 +3521,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerF00NumBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spentStarCoinsNumBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3515,7 +3746,7 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.NumericUpDown newerMusicID;
         private System.Windows.Forms.NumericUpDown newerWorldID;
-        private System.Windows.Forms.GroupBox starFileGroupBox;
+        private System.Windows.Forms.GroupBox propertiesFileGroupBox;
         private System.Windows.Forms.CheckBox fifthStarCheckBox;
         private System.Windows.Forms.CheckBox fourthStarCheckBox;
         private System.Windows.Forms.CheckBox thirdStarCheckBox;
@@ -3532,6 +3763,24 @@
         private System.Windows.Forms.Button clearWorldButton;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.NumericUpDown spentStarCoinsNumBox;
+        private System.Windows.Forms.NumericUpDown unclearWorldNumBox;
+        private System.Windows.Forms.Button unclearWorldButton;
+        private System.Windows.Forms.Button unclearAllLevelsButton;
+        private System.Windows.Forms.Button unclearAllLevelsButW9Button;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compareSavesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inTheSameSaveFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inDifferentSaveFilesToolStripMenuItem;
+        private System.Windows.Forms.GroupBox switchPalacesGroupBox;
+        private System.Windows.Forms.CheckBox blueSwitchCheckBox;
+        private System.Windows.Forms.CheckBox yellowSwitchCheckBox;
+        private System.Windows.Forms.CheckBox greenSwitchCheckBox;
+        private System.Windows.Forms.CheckBox redSwitchCheckBox;
+        private System.Windows.Forms.GroupBox newerWorldGroupBox;
+        private System.Windows.Forms.Button newInfoButton;
+        private System.Windows.Forms.CheckBox isNewCheckBox;
+        private System.Windows.Forms.Button nodeSelectorButton;
+        private System.Windows.Forms.ToolStripMenuItem nodeEditorToolStripMenuItem;
     }
 }
 

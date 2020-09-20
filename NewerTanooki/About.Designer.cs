@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.infoLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // infoLabel
@@ -39,7 +40,7 @@
             this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.infoLabel.Location = new System.Drawing.Point(12, 9);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(267, 78);
+            this.infoLabel.Size = new System.Drawing.Size(285, 78);
             this.infoLabel.TabIndex = 0;
             this.infoLabel.Text = resources.GetString("infoLabel.Text");
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -47,7 +48,7 @@
             // closeButton
             // 
             this.closeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.closeButton.Location = new System.Drawing.Point(113, 104);
+            this.closeButton.Location = new System.Drawing.Point(122, 104);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 1;
@@ -55,11 +56,21 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // versionLabel
+            // 
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(12, 109);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(101, 13);
+            this.versionLabel.TabIndex = 2;
+            this.versionLabel.Text = "NewerTanooki v1.1";
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 139);
+            this.ClientSize = new System.Drawing.Size(311, 139);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.infoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -77,5 +88,6 @@
 
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label versionLabel;
     }
 }

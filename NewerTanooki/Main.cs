@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NewerTanooki.World;
 
 namespace NewerTanooki
 {
@@ -24,7 +25,8 @@ namespace NewerTanooki
 		char[] rawstring;
 		string originalPath = "";
 
-		int skipStarUpdate = 0;
+		bool skipStarUpdate = true;
+		bool skipSwitchUpdate = true;
 
 		public string charToString(List<char> input)
 		{
@@ -204,15 +206,14 @@ namespace NewerTanooki
 					Array.Reverse(field_64__full16);
 					firstSave.field_64 = BitConverter.ToUInt16(field_64__full16, 0);
 
-					baseOffset += 2; //IDK
 
 					byte[] spentStarCoins__full16 = { rawdata[baseOffset++], rawdata[baseOffset++] };
 					Array.Reverse(spentStarCoins__full16);
 					firstSave.spentStarCoins = BitConverter.ToUInt16(spentStarCoins__full16, 0);
 
-					byte[] score__full16 = { rawdata[baseOffset++], rawdata[baseOffset++] };
-					Array.Reverse(score__full16);
-					firstSave.score = BitConverter.ToUInt16(score__full16, 0);
+					byte[] score__full32 = { rawdata[baseOffset++], rawdata[baseOffset++], rawdata[baseOffset++], rawdata[baseOffset++] };
+					Array.Reverse(score__full32);
+					firstSave.score = BitConverter.ToUInt16(score__full32, 0);
 
 					for (int offset = 0; offset < 420; offset++)
 					{
@@ -225,6 +226,8 @@ namespace NewerTanooki
 					{
 						firstSave.newerWorldName.Add(rawstring[baseOffset++]);
 					}
+
+					Console.WriteLine(firstSave.newerWorldName[0] + " " + Convert.ToInt32(firstSave.newerWorldName[13]) + " " + Convert.ToInt32(firstSave.newerWorldName[14]));
 
 					for (int offset = 0; offset < 2; offset++)
 					{
@@ -326,6 +329,8 @@ namespace NewerTanooki
 				mainTabControl.Enabled = true;
 				saveToolStripMenuItem.Enabled = true;
 				saveAsToolStripMenuItem.Enabled = true;
+				compareSavesToolStripMenuItem.Enabled = true;
+				inTheSameSaveFileToolStripMenuItem.Enabled = true;
 
 				if (thisSave.header.titleID[3] == 'P') { saveRegionComboBox.SelectedIndex = 0; }
 				if (thisSave.header.titleID[3] == 'E') { saveRegionComboBox.SelectedIndex = 1; }
@@ -443,8 +448,6 @@ namespace NewerTanooki
 				{
 					saveData.Add(currentByte);
 				}
-				saveData.Add((byte)00); //IDK
-				saveData.Add((byte)00); //IDK
 				foreach (byte currentByte in BitConverter.GetBytes(currentSave.spentStarCoins).Reverse<byte>())
 				{
 					saveData.Add(currentByte);
@@ -462,6 +465,10 @@ namespace NewerTanooki
 				}
 				for (int i = 0; i < 32; i++)
 				{
+					if(currentSave.newerWorldName[i] > 0xFF)
+					{
+						currentSave.newerWorldName[i] = (char)0;
+					}
 					saveData.Add(Convert.ToByte(currentSave.newerWorldName[i]));
 				}
 				for (int i = 0; i < 2; i++)
@@ -587,7 +594,7 @@ namespace NewerTanooki
 
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].current_world = (byte)currentWorldNumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].current_path_node = (byte)currentPathNodeNumBox.Value;
-				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].score = (ushort)scoreNumBox.Value;
+				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].score = (UInt32)scoreNumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].spentStarCoins = (ushort)spentStarCoinsNumBox.Value;
 
 				//Newer World Data
@@ -667,7 +674,7 @@ namespace NewerTanooki
 
 				thisSave.saves[saveNumberComboBox.SelectedIndex].current_world = (byte)currentWorldNumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].current_path_node = (byte)currentPathNodeNumBox.Value;
-				thisSave.saves[saveNumberComboBox.SelectedIndex].score = (ushort)scoreNumBox.Value;
+				thisSave.saves[saveNumberComboBox.SelectedIndex].score = (UInt32)scoreNumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].spentStarCoins = (ushort)spentStarCoinsNumBox.Value;
 
 				//Newer World Data
@@ -806,13 +813,21 @@ namespace NewerTanooki
 			newerWorldID.Value = (byte)toLoad.newerWorldID;
 			newerMusicID.Value = (byte)toLoad.currentMapMusic;
 
+			//Switch Palaces
+			redSwitchCheckBox.Checked = Convert.ToBoolean(toLoad.switch_on & (byte)1);
+			greenSwitchCheckBox.Checked = Convert.ToBoolean(toLoad.switch_on & (byte)2);
+			yellowSwitchCheckBox.Checked = Convert.ToBoolean(toLoad.switch_on & (byte)4);
+			blueSwitchCheckBox.Checked = Convert.ToBoolean(toLoad.switch_on & (byte)8);
+			skipSwitchUpdate = false;
+
 			//FS Stars
-			skipStarUpdate = 5;
+			isNewCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 1U);
 			firstStarCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 2U);
 			secondStarCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 4U);
 			thirdStarCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 8U);
 			fourthStarCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 0x10U);
 			fifthStarCheckBox.Checked = Convert.ToBoolean(toLoad.bitfield & 0x20U);
+			skipStarUpdate = false;
 		}
 
 		public void LoadLevelCompletion(int world, int level)
@@ -948,10 +963,10 @@ namespace NewerTanooki
 			{
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].field_00 = (byte)currentSaveF00NumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].field_01 = (byte)currentSaveF01NumBox.Value;
-				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].bitfield = (byte)currentSaveBFNumBox.Value;
+				//bitfield								thisSave.quickSaves[saveNumberComboBox.SelectedIndex].bitfield = (byte)currentSaveBFNumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].field_04 = (byte)currentSaveF04NumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].field_06 = (byte)currentSaveF06NumBox.Value;
-				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].switch_on = (byte)currentSaveSONumBox.Value;
+				//switch_on								thisSave.quickSaves[saveNumberComboBox.SelectedIndex].switch_on = (byte)currentSaveSONumBox.Value;
 				thisSave.quickSaves[saveNumberComboBox.SelectedIndex].field_08 = (byte)currentSaveF08NumBox.Value;
 				//Worlds_available
 				//Ambush_countdown
@@ -969,10 +984,10 @@ namespace NewerTanooki
 			{
 				thisSave.saves[saveNumberComboBox.SelectedIndex].field_00 = (byte)currentSaveF00NumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].field_01 = (byte)currentSaveF01NumBox.Value;
-				thisSave.saves[saveNumberComboBox.SelectedIndex].bitfield = (byte)currentSaveBFNumBox.Value;
+				//bitfield								thisSave.saves[saveNumberComboBox.SelectedIndex].bitfield = (byte)currentSaveBFNumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].field_04 = (byte)currentSaveF04NumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].field_06 = (byte)currentSaveF06NumBox.Value;
-				thisSave.saves[saveNumberComboBox.SelectedIndex].switch_on = (byte)currentSaveSONumBox.Value;
+				//switch_on								thisSave.saves[saveNumberComboBox.SelectedIndex].switch_on = (byte)currentSaveSONumBox.Value;
 				thisSave.saves[saveNumberComboBox.SelectedIndex].field_08 = (byte)currentSaveF08NumBox.Value;
 				//Worlds_available
 				//Ambush_countdown
@@ -1076,11 +1091,50 @@ namespace NewerTanooki
 			}
 		}
 
+		private void inTheSameSaveFileToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			int firstCompare;
+			int secondCompare;
+			Compare a = new Compare();
+			DialogResult dialogresult = a.ShowDialog();
+			if (dialogresult == DialogResult.OK)
+			{
+				firstCompare = a.compareInt;
+				secondCompare = a.withInt;
+				a.Close();
+
+				DoCompare b = new DoCompare();
+				b.firstSave = ((firstCompare < 3) ? thisSave.saves[firstCompare] : thisSave.quickSaves[firstCompare - 3]);
+				b.secondSave = ((secondCompare < 3) ? thisSave.saves[secondCompare] : thisSave.quickSaves[secondCompare - 3]);
+				b.id1 = firstCompare;
+				b.id2 = secondCompare;
+				DialogResult dialogresultB = b.ShowDialog();
+				if (dialogresultB == DialogResult.OK)
+				{
+					b.Close();
+
+				}
+			}
+		}
+
+		private void inDifferentSaveFilesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("This feature isn't implemented yet !\n\nWait, how the hell did you even find it ?\nYou read the code or you just pressed CTRL+J by accident ?\nAnyway...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		private void nodeEditorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			nodeSelectorButton_Click(sender, e);
+		}
+
 		private void Main_Load(object sender, EventArgs e)
 		{
 			mainTabControl.Enabled = false;
 			saveToolStripMenuItem.Enabled = false;
 			saveAsToolStripMenuItem.Enabled = false;
+			compareSavesToolStripMenuItem.Enabled = false;
+			inTheSameSaveFileToolStripMenuItem.Enabled = false;
+			inDifferentSaveFilesToolStripMenuItem.Visible = false; //Not done yet, and don't want to do it for now.
 		}
 
 		private void fsTextTopButton_Click(object sender, EventArgs e)
@@ -1160,6 +1214,26 @@ namespace NewerTanooki
 			}
 		}
 
+		private void switchCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!skipSwitchUpdate)
+			{
+				byte newSwitchOn = 0;
+				newSwitchOn |= ((redSwitchCheckBox.Checked) ? (byte)1 : (byte)0);
+				newSwitchOn |= ((greenSwitchCheckBox.Checked) ? (byte)2 : (byte)0);
+				newSwitchOn |= ((yellowSwitchCheckBox.Checked) ? (byte)4 : (byte)0);
+				newSwitchOn |= ((blueSwitchCheckBox.Checked) ? (byte)8 : (byte)0);
+				if (quickSaveCheckBox.Checked)
+				{
+					thisSave.quickSaves[saveNumberComboBox.SelectedIndex].switch_on = newSwitchOn;
+				}
+				else
+				{
+					thisSave.saves[saveNumberComboBox.SelectedIndex].switch_on = newSwitchOn;
+				}
+			}
+		}
+
 		private void completionNumBox_ValueChanged(object sender, EventArgs e)
 		{
 			LoadLevelCompletion((int)worldNumBox.Value, (int)levelNumBox.Value);
@@ -1218,6 +1292,46 @@ namespace NewerTanooki
 		private void clearWorldNumBox_ValueChanged(object sender, EventArgs e)
 		{
 			clearWorldButton.Text = (clearWorldNumBox.Value < 10) ? ("Clear World " +  clearWorldNumBox.Value) : ("Clear Bonus Worlds");
+		}
+
+		private void unclearAllLevelsButW9Button_Click(object sender, EventArgs e)
+		{
+			SaveBlock toLoad = ((quickSaveCheckBox.Checked) ? thisSave.quickSaves[saveNumberComboBox.SelectedIndex] : thisSave.saves[saveNumberComboBox.SelectedIndex]);
+			for (int i = 0; i < 336; i++)
+			{
+				toLoad.completions[i] = 0;
+			}
+			for (int i = 377; i < 420; i++)
+			{
+				toLoad.completions[i] = 0;
+			}
+			LoadLevelCompletion((int)worldNumBox.Value, (int)levelNumBox.Value);
+		}
+
+		private void unclearAllLevelsButton_Click(object sender, EventArgs e)
+		{
+			SaveBlock toLoad = ((quickSaveCheckBox.Checked) ? thisSave.quickSaves[saveNumberComboBox.SelectedIndex] : thisSave.saves[saveNumberComboBox.SelectedIndex]);
+			for (int i = 0; i < 420; i++)
+			{
+				toLoad.completions[i] = 0;
+			}
+			LoadLevelCompletion((int)worldNumBox.Value, (int)levelNumBox.Value);
+		}
+
+		private void unclearWorldButton_Click(object sender, EventArgs e)
+		{
+			SaveBlock toLoad = ((quickSaveCheckBox.Checked) ? thisSave.quickSaves[saveNumberComboBox.SelectedIndex] : thisSave.saves[saveNumberComboBox.SelectedIndex]);
+			int whichWorld = (int)unclearWorldNumBox.Value - 1;
+			for (int i = (whichWorld * 42); i < ((whichWorld + 1) * 42); i++)
+			{
+				toLoad.completions[i] = 0;
+			}
+			LoadLevelCompletion((int)worldNumBox.Value, (int)levelNumBox.Value);
+		}
+
+		private void unclearWorldNumBox_ValueChanged(object sender, EventArgs e)
+		{
+			unclearWorldButton.Text = (unclearWorldNumBox.Value < 10) ? ("Unclear World " + unclearWorldNumBox.Value) : ("Unclear Bonus Worlds");
 		}
 
 		private void additionsCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1535,47 +1649,61 @@ namespace NewerTanooki
 			return ~checksum;
 		}
 
+		private void newInfoButton_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("If this is checked, the file will be labled as a new file in the FSEL menu.");
+		}
+
 		private void fsInfoButton_Click(object sender, EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show("The First Star is the \"Was the game already completed\" Star.\n\nIt is determined if the level slot 08-24 was cleared or not.\n\nTherefore, the best way to get this star is to make it so level 08-24 is cleared in the Level Completions tab.");
+			MessageBox.Show("The First Star is the \"Was the game already completed\" Star.\n\nIt is determined if the level slot 08-24 was cleared or not.\n\nTherefore, the best way to get this star is to make it so level 08-24 is cleared in the Level Completions tab.");
 		}
 
 		private void ssInfoButton_Click(object sender, EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show("The Second Star is the \"Are all the exits of classical levels got\" Star.\n\nIt is determined by checking if all the levels from the current LevelInfo.bin except those from W9 are cleared or not.\n\nTherefore, the best way to get this star is to use the automated \"Clear Levels (except W9)\" function in the Level Completions tab.");
+			MessageBox.Show("The Second Star is the \"Are all the exits of classical levels got\" Star.\n\nIt is determined by checking if all the levels from the current LevelInfo.bin except those from W9 are cleared or not.\n\nTherefore, the best way to get this star is to use the automated \"Clear Levels (except W9)\" function in the Level Completions tab.");
 		}
 
 		private void tsInfoButton_Click(object sender, EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show("The Third Star is the \"Are all the star coins of classical levels collected\" Star.\n\nIt is determined by checking if all the levels from the current LevelInfo.bin except those from W9 have all their star coins collected or not.\n\n");
+			MessageBox.Show("The Third Star is the \"Are all the star coins of classical levels collected\" Star.\n\nIt is determined by checking if all the levels from the current LevelInfo.bin except those from W9 have all their star coins collected or not.\n\n");
 		}
 
 		private void fosInfoButton_Click(object sender, EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show("The Fourth Star is the \"Are all the exits of W9 levels got\" Star.\n\nIt is determined by checking if all the levels from the 9th world slot in the current LevelInfo.bin are cleared or not.\n\n");
+			MessageBox.Show("The Fourth Star is the \"Are all the exits of W9 levels got\" Star.\n\nIt is determined by checking if all the levels from the 9th world slot in the current LevelInfo.bin are cleared or not.\n\n");
 		}
 
 		private void fisInfoButton_Click(object sender, EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show("The Fifth Star is the \"Are all the star coins of W9 levels collected\" Star.\n\nIt is determined by checking if all the star coins from the levels from the 9th world slot in the current LevelInfo.bin are collected or not.\n\n");
+			MessageBox.Show("The Fifth Star is the \"Are all the star coins of W9 levels collected\" Star.\n\nIt is determined by checking if all the star coins from the levels from the 9th world slot in the current LevelInfo.bin are collected or not.\n\n");
 		}
 
 		private void starCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
-			if (skipStarUpdate < 1) //This is to avoid stars to be broken when placed into checkboxes during the save load
+			if (!skipStarUpdate) //This is to avoid stars to be broken when placed into checkboxes during the save load
 			{
 				SaveBlock toLoad = ((quickSaveCheckBox.Checked) ? thisSave.quickSaves[saveNumberComboBox.SelectedIndex] : thisSave.saves[saveNumberComboBox.SelectedIndex]);
-				Console.WriteLine("fuck it: " + toLoad.bitfield + " " + currentSaveBFNumBox.Value);
 				uint newValue = (uint)toLoad.bitfield;
-				newValue &= ~0x3EU; //Remove the star values if there's any
-				newValue |= (firstStarCheckBox.Checked ? 2U : 0U) | (secondStarCheckBox.Checked ? 4U : 0U) | (thirdStarCheckBox.Checked ? 8U : 0U) | (fourthStarCheckBox.Checked ? 0x10U : 0U) | (fifthStarCheckBox.Checked ? 0x20U : 0U);
+				//newValue &= ~0x3EU; //Remove the star values if there's any
+				newValue &= ~0x3FU; //Remove the star values if there's any as well as the "is new" check
+				newValue |= (isNewCheckBox.Checked ? 1U : 0U) | (firstStarCheckBox.Checked ? 2U : 0U) | (secondStarCheckBox.Checked ? 4U : 0U) | (thirdStarCheckBox.Checked ? 8U : 0U) | (fourthStarCheckBox.Checked ? 0x10U : 0U) | (fifthStarCheckBox.Checked ? 0x20U : 0U);
 				toLoad.bitfield = (byte)newValue;
 				currentSaveBFNumBox.Value = newValue;
-				Console.WriteLine("fuck it: " + toLoad.bitfield + " " + currentSaveBFNumBox.Value);
 			}
-			else
+		}
+
+		private void nodeSelectorButton_Click(object sender, EventArgs e)
+		{
+			NodeSelector a = new NodeSelector();
+			a.currentWorld = (int)currentWorldNumBox.Value;
+			a.selectedID = (int)currentPathNodeNumBox.Value;
+			DialogResult dialogresult = a.ShowDialog();
+			if (dialogresult == DialogResult.OK)
 			{
-				skipStarUpdate--;
+				currentWorldNumBox.Value = a.currentWorld;
+				currentPathNodeNumBox.Value = a.selectedID;
+				a.Close();
 			}
 		}
 	}
@@ -1601,6 +1729,11 @@ namespace NewerTanooki
 		{
 			byte[] returnToThat = { r, g, b, a };
 			return returnToThat;
+		}
+
+		public string GXtoHexString()
+		{
+			return (Convert.ToString(r, 16) + Convert.ToString(g, 16) + Convert.ToString(b, 16) + Convert.ToString(a, 16)).ToUpper();
 		}
 	}
 
@@ -1642,7 +1775,7 @@ namespace NewerTanooki
 		internal List<UInt32> ambush_countdown = new List<UInt32>();    // 0x3C
 		internal UInt16 field_64 = new UInt16();						// 0x64
 		internal UInt16 spentStarCoins = new UInt16();					// 0x66, used to be credits_hiscore
-		internal UInt16 score = new UInt16();							// 0x68
+		internal UInt32 score = new UInt32();							// 0x68, apparently it was mistaken as a u16 in game.h
 		internal List<UInt32> completions = new List<UInt32>();         // 0x6C
 
 		//Newer Additions, replacing u8 hint_movie_bought[70]
@@ -1667,7 +1800,7 @@ namespace NewerTanooki
 		internal List<byte> death_counts = new List<byte>();			// 0x7C4
 		internal byte death_count_3_4_switch = new byte();				// 0x968
 		internal List<byte> pad = new List<byte>();						// 0x969
-		internal UInt32 checksum = new UInt32();						// 0x97C
+		internal UInt32 checksum = new UInt32();                        // 0x97C
 	}
 
 	public class SaveFile

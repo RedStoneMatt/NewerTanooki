@@ -11,3 +11,5 @@ C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.csp
 C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.csproj.CopyComplete
 C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.exe
 C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.pdb
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.Compare.resources
+C:\Users\PC3\source\repos\NewerTanooki\NewerTanooki\obj\Release\NewerTanooki.DoCompare.resources
